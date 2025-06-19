@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de exercícios html + js</title>
+</head>
+<body>
+ <!-- Exercício 1: Par ou Ímpar -->
+  <h1>Verificar Par ou Ímpar</h1>
+  <input type="number" id="numero" placeholder="Digite um número">
+  <button onclick="verificar()">Verificar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+      const num = parseInt(document.getElementById('numero').value);
+      const resultado = (num % 2 === 0) ? "Par" : "Ímpar";
+      document.getElementById('resultado').innerText = resultado;
+    }
+  </script>
+
+  <!-- Exercício 2: Tabuada -->
+    <h1>Calculadora de Tabuada</h1>
+  <input type="number" id="numero" placeholder="Digite um número">
+  <button onclick="gerarTabuada()">Mostrar Tabuada</button>
+  <div id="tabuada"></div>
+
+  <script>
+    function gerarTabuada() {
+      const num = parseInt(document.getElementById('numero').value);
+      let resultado = '';
+
+      document.getElementById('tabuada').innerHTML = resultado;
+    }
+  </script>
+
+   <!-- Exercício 3: Incremento/Decremento -->
+  <h1>3.Contador</h1>
+  <p id="contador">0</p>
+  <button onclick="alterar(1)">+</button>
+  <button onclick="alterar(-1)">-</button>
+
+  <script>
+    let valor = 0;
+    function alterar(delta) {
+      valor += delta;
+      document.getElementById('contador').innerText = valor;
+    }
+  </script>
+
+  <!-- Exercício 4: Adivinhar Número -->
+   <h1>4.Adivinhe o Número (1 a 10)</h1>
+  <input type="number" id="palpite" placeholder="Digite seu palpite">
+  <button onclick="verificar()">Verificar</button>
+  <p id="mensagem"></p>
+
+  <script>
+    const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+    function verificar() {
+      const palpite = parseInt(document.getElementById('palpite').value);
+      if (palpite === numeroSecreto) {
+        document.getElementById('mensagem').innerText = "Parabéns! Você acertou!";
+      } else {
+        document.getElementById('mensagem').innerText = "Errou! Tente novamente.";
+      }
+    }
+  </script>
+
+  <!-- Exercício 5: Média de Notas -->
+   <h1>Calcular Média</h1>
+  <input type="number" id="nota1" placeholder="Nota 1">
+  <input type="number" id="nota2" placeholder="Nota 2">
+  <input type="number" id="nota3" placeholder="Nota 3">
+  <button onclick="calcularMedia()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularMedia() {
+      const n1 = parseFloat(document.getElementById('nota1').value);
+      const n2 = parseFloat(document.getElementById('nota2').value);
+      const n3 = parseFloat(document.getElementById('nota3').value);
+      const media = (n1 + n2 + n3) / 3;
+      const status = (media >= 6) ? "Aprovado" : "Reprovado";
+      document.getElementById('resultado').innerText = `Média: ${media.toFixed(2)} - ${status}`;
+    }
+  </script>
+
+  <!-- Exercício 6 Perfil com CSS externo -->
+  <section>
+    <h1>6. Helena Matos</h1>
+    <img src="eu.jpeg" alt="Minha Foto" width="200">
+    <p>Estudante do IFSP - Campus Salto</p>
+    <h2>Hobbies:</h2>
+    <ul>
+      <li>Desenhar</li>
+      <li>Assistir filmes</li>
+      <li>Ouvir música</li>
+    </ul>
+  </section>
+
+  <!-- Exercício 7: Formulário de Contato -->
+   <h1>7.Contato</h1>
+  <form>
+    <label>Nome:</label><br>
+    <input type="text" id="nome"><br>
+
+    <label>E-mail:</label><br>
+    <input type="email" id="email"><br>
+
+    <label>Assunto:</label><br>
+    <input type="text" id="assunto"><br>
+
+    <label>Mensagem:</label><br>
+    <textarea id="mensagem"></textarea><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <!-- Exercício 8: Validação do exercício 6 -->
+    <h1>8.Formulário de Contato</h1>
+  <form onsubmit="return validar()">
+    <input type="text" id="nome" placeholder="Nome"><br>
+    <input type="email" id="email" placeholder="E-mail"><br>
+    <input type="text" id="assunto" placeholder="Assunto"><br>
+    <textarea id="mensagem" placeholder="Mensagem"></textarea><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function validar() {
+      if (!document.getElementById('nome').value ||
+          !document.getElementById('email').value ||
+          !document.getElementById('assunto').value ||
+          !document.getElementById('mensagem').value) {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+  <!-- Exercício 9: Mudar cor de fundo -->
+   <h1>9. Mudar a cor de fundo </h1>
+   <button onclick="mudarCor()">Mudar Cor de Fundo</button>
+
+  <script>
+    function mudarCor() {
+      document.body.style.backgroundColor = 'lightblue';
+    }
+  </script>
+
+  <!-- Exercício 10: IMC -->
+  <h1>Calcule seu IMC</h1>
+  <input type="number" id="peso" placeholder="Peso (kg)"><br>
+  <input type="number" id="altura" placeholder="Altura (m)"><br>
+  <button onclick="calcularIMC()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById('peso').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+      const imc = peso / (altura * altura);
+      document.getElementById('resultado').innerText = `Seu IMC é: ${imc.toFixed(2)}`;
+    }
+  </script>
+
+   <!-- Exercício 11: Calculadora -->
+  <section>
+    <h2>11. Calculadora</h2>
+    <input type="number" id="num11a">
+    <input type="number" id="num11b">
+    <button onclick="calcular('add')">+</button>
+    <button onclick="calcular('sub')">-</button>
+    <button onclick="calcular('mul')">*</button>
+    <button onclick="calcular('div')">/</button>
+    <p id="res11"></p>
+  </section>
+
+  <!-- Exercício 12: Pergunta múltipla escolha -->
+  <section>
+    <h2>12. Pergunta Múltipla Escolha</h2>
+    <p>Quanto é 2 + 2?</p>
+    <input type="radio" name="q12" value="3">3<br>
+    <input type="radio" name="q12" value="4">4<br>
+    <input type="radio" name="q12" value="5">5<br>
+    <input type="radio" name="q12" value="6">6<br>
+    <button onclick="verificarResposta12()">Verificar</button>
+    <p id="res12"></p>
+  </section>
+
+  <!-- Exercício 13: Conversor de Temperatura -->
+  <section>
+    <h2>13. Conversor de Temperatura</h2>
+    <input type="number" id="temp13">
+    <button onclick="converterTemp('c')">Para Celsius</button>
+    <button onclick="converterTemp('f')">Para Fahrenheit</button>
+    <p id="res13"></p>
+  </section>
+
+  <!-- Exercício 14: Saudação com Nome -->
+  <section>
+    <h2>14. Saudação</h2>
+    <input id="nome14" placeholder="Digite seu nome">
+    <button onclick="saudacao()">Saudar</button>
+  </section>
+
+  <!-- Exercício 15: Cronômetro -->
+  <section>
+    <h2>15. Cronômetro</h2>
+    <p id="cronometro">0</p>
+    <button onclick="iniciarCronometro()">Iniciar</button>
+    <button onclick="pausarCronometro()">Pausar</button>
+    <button onclick="zerarCronometro()">Zerar</button>
+  </section>
+
+  <!-- Exercício 16: Mudar Fundo com Rádio -->
+  <section>
+    <h2>16. Fundo com Rádio</h2>
+    <input type="radio" name="cor" value="red" onchange="mudarFundo(this.value)">Vermelho
+    <input type="radio" name="cor" value="green" onchange="mudarFundo(this.value)">Verde
+    <input type="radio" name="cor" value="blue" onchange="mudarFundo(this.value)">Azul
+    <input type="radio" name="cor" value="yellow" onchange="mudarFundo(this.value)">Amarelo
+  </section>
+
+  <!-- Exercício 17: Questões de Matemática -->
+  <section>
+    <h2>17. Questão de Matemática</h2>
+    <p>Quanto é 5 x 3?</p>
+    <input type="radio" name="q17" value="15">15<br>
+    <input type="radio" name="q17" value="10">10<br>
+    <button onclick="verificarResposta17()">Verificar</button>
+    <p id="res17"></p>
+  </section>
+
+  <!-- Exercício 18: Cor Aleatória no Botão -->
+  <section>
+    <h2>18. Cor Aleatória no Botão</h2>
+    <button id="btnCor" onclick="mudarCorBotao()">Clique para mudar a cor</button>
+  </section>
+
+  <!-- Exercício 19: Contador de Cliques -->
+  <section>
+    <h2>19. Contador de Cliques</h2>
+    <button id="btnContador" onclick="contarCliques()">Clique Aqui</button>
+    <span id="contador">0</span>
+  </section>
+
+  <!-- Exercício 20: Mouseover/Mousout -->
+  <section>
+    <h2>20. Hover no Texto</h2>
+    <p id="textoHover" onmouseover="mudarTextoHover()" onmouseout="restaurarTextoHover()">Passe o mouse aqui!</p>
+  </section>
+
+  <!-- Exercício 21: Evento de Teclado -->
+  <section>
+    <h2>21. Última Tecla Pressionada</h2>
+    <input id="inputTecla" onkeydown="mostrarTecla(event)">
+    <span id="teclaPressionada"></span>
+  </section>
+
+  <!-- Exercício 22: Ocultar com Double Click -->
+  <section>
+    <h2>22. Ocultar Parágrafo</h2>
+    <p id="paragrafo" ondblclick="ocultarParagrafo()">Dê dois cliques para me esconder.</p>
+  </section>
+
+  <!-- Exercício 23: Habilitar Botão com Checkbox -->
+  <section>
+    <h2>23. Habilitar Botão com Checkbox</h2>
+    <input type="checkbox" id="checkPermissao" onchange="verificarCheckbox()">Aceito os termos<br>
+    <button id="btnEnviar" disabled>Enviar</button>
+  </section>
+
+  <script>
+    // Funções JS para todos os exercícios de 11 a 23:
+    function calcular(op) {
+      let a = parseFloat(document.getElementById('num11a').value);
+      let b = parseFloat(document.getElementById('num11b').value);
+      let res;
+      if (op === 'add') res = a + b;
+      else if (op === 'sub') res = a - b;
+      else if (op === 'mul') res = a * b;
+      else if (op === 'div') res = b !== 0 ? a / b : 'Erro: Divisão por zero';
+      document.getElementById('res11').innerText = res;
+    }
+
+    function verificarResposta12() {
+      let r = document.querySelector('input[name="q12"]:checked');
+      if (r && r.value === "4") document.getElementById('res12').innerText = 'Correto!';
+      else document.getElementById('res12').innerText = 'Incorreto!';
+    }
+
+    function converterTemp(tipo) {
+      let val = parseFloat(document.getElementById('temp13').value);
+      let res;
+      if (tipo === 'c') res = ((val - 32) * 5/9).toFixed(2) + '°C';
+      else res = ((val * 9/5) + 32).toFixed(2) + '°F';
+      document.getElementById('res13').innerText = res;
+    }
+
+    function saudacao() {
+      let nome = document.getElementById('nome14').value;
+      alert(`Olá ${nome}. Seja bem-vindo(a)`);
+    }
+
+    let timer;
+    let count = 0;
+    function iniciarCronometro() {
+      timer = setInterval(() => {
+        count++;
+        document.getElementById('cronometro').innerText = count;
+      }, 1000);
+    }
+    function pausarCronometro() { clearInterval(timer); }
+    function zerarCronometro() {
+      clearInterval(timer);
+      count = 0;
+      document.getElementById('cronometro').innerText = 0;
+    }
+
+    function mudarFundo(cor) { document.body.style.backgroundColor = cor; }
+
+    function verificarResposta17() {
+      let r = document.querySelector('input[name="q17"]:checked');
+      document.getElementById('res17').innerText = (r && r.value == "15") ? 'Correto!' : 'Incorreto!';
+    }
+
+    function mudarCorBotao() {
+      const cores = ['red', 'blue', 'green', 'yellow', 'purple'];
+      let cor = cores[Math.floor(Math.random() * cores.length)];
+      document.getElementById('btnCor').style.backgroundColor = cor;
+    }
+
+    let cliques = 0;
+    function contarCliques() {
+      cliques++;
+      document.getElementById('contador').innerText = cliques;
+    }
+
+    function mudarTextoHover() {
+      document.getElementById('textoHover').innerText = 'Você passou o mouse!';
+    }
+    function restaurarTextoHover() {
+      document.getElementById('textoHover').innerText = 'Passe o mouse aqui!';
+    }
+
+    function mostrarTecla(e) {
+      document.getElementById('teclaPressionada').innerText = e.key;
+    }
+
+    function ocultarParagrafo() {
+      document.getElementById('paragrafo').style.display = 'none';
+    }
+
+    function verificarCheckbox() {
+      let check = document.getElementById('checkPermissao');
+      document.getElementById('btnEnviar').disabled = !check.checked;
+    }
+  </script>
+</body>
+</html>
